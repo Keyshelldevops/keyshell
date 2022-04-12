@@ -1,0 +1,38 @@
+.main{
+    background-color: #1a0940;
+    height: 100vh;
+    width: 100vw;
+}
+.content{
+    display: flex;
+    height: 100%;
+    padding: 0 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.content h1{
+    color: #ffffffde;
+    font-size: 50px;
+    text-align: center;
+}
+.content span{
+    color: #e6454a;
+    font-size: 56px;
+}
+.content p {
+    display: inline;
+}
+.author{
+    margin-top: 42px;
+    text-align: center;
+    font-size: 17px !important;
+    color: #ffffffde;
+}
+.author p{
+    display: block;
+}
+.author span {
+    color: #ffffffde;
+    font-size: 17px;
+}
