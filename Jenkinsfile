@@ -25,7 +25,7 @@ pipeline {
                 sh 'ng build'
             }
             post {
-                changed {
+                success {
                     fingerprint 'dist/keyshell'
                 }
             }
@@ -33,6 +33,11 @@ pipeline {
         stage('Deploy to Apache2') {
             steps {
                 sh 'rsync -avzP dist/keyshell/* /var/www/html/'
+            }
+        }
+        stage('Archive Artifacts') {
+            steps {
+                archiveArtifacts artifacts: 'dist/keyshell/', fingerprint: true, onlyIfSuccessful: true
             }
         }
     }
