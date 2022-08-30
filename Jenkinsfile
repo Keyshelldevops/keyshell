@@ -3,7 +3,12 @@ pipeline {
     tools {
         nodejs '16.17.0'
     }
-    
+  
+    options {
+        retry(2)
+        timestamps()
+    }
+  
     stages {
         stage('SCM') {
             steps {
@@ -18,6 +23,11 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'ng build'
+            }
+            post {
+                changed {
+                    fingerprint 'dist/keyshell'
+                }
             }
         }
         stage('Deploy to Apache2') {
