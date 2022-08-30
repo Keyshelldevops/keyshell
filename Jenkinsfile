@@ -38,9 +38,8 @@ pipeline {
         stage('Archive Artifacts') {
             steps {
                 script{
-                    zip zipFile: 'test.zip', archive: false, dir: 'dist/keyshell/*'
-                } 
-                archiveArtifacts artifacts: 'dist/keyshell/', fingerprint: true, onlyIfSuccessful: true
+                  zip zipFile: 'archive.zip', archive: true, dir: 'dist/keyshell/' overwrite: true
+                }
             }
         }
     }
